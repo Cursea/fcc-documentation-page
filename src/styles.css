@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.night-mode {
+  background-color: rgb(26, 29, 30);
+  color: white;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "navbar main-doc main-doc main-doc main-doc";
+}
+
+#navbar {
+  grid-area: navbar;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 2px 5px;
+  border: medium solid rgb(0, 25, 253);
+}
+
+#navbar-icon {
+  font-weight: 700;
+  background-color: grey;
+  border: thin solid white;
+  border-radius: 50%;
+  box-shadow: 0.5px 0px rgb(235, 235, 235);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+
+  /*keep the navbar-icon icon on the edge of the navbar/main-content*/
+  position: fixed;
+  top: calc(0.5 * 100vh);
+  left: calc(95vw / 5);
+
+  /*center the navbar-icon icon*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#navbar-icon:hover {
+  transform: scale(1.2);
+}
+
+#night-mode-icon {
+  max-width: 30px;
+  position: fixed;
+  bottom: calc(100vh - 40px);
+  left: calc(100vw - 60px);
+  border: 2px solid whitesmoke;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#night-mode-icon:hover {
+  animation-name: night;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes night {
+  100% {
+    border: 2px solid rgb(212, 195, 0);
+    border-radius: 50%;
+  }
+}
+
+#main-doc {
+  grid-area: main-doc;
+  padding: 2px 5px;
+  border: medium solid rgb(255, 72, 0);
+}
+
+@media (max-width: 800px) {
+}
+
+header {
+  padding: 10px 0px;
+  font-weight: 550;
+  font-size: 1.5em;
+}
+
+#navbar-title {
+  padding: 10px 0px;
+}
+
+.nav-link {
+  display: block;
+  text-decoration: none;
+  color: rgb(108, 172, 255);
+  line-height: 1.25em;
+}
+
+code {
+  color: rgb(0, 194, 0);
+}
