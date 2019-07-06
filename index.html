@@ -26,116 +26,208 @@
       <main id="main-doc">
         <section class="main-section" id="main_section_1">
           <header>Map</header>
-          <p>p1</p>
-          <p>p2</p>
+          <p>MDN definition and example:</p>
+          <blockquote>
+            The map() method creates a new array with the results of calling a
+            provided function on every element in the calling array.
+          </blockquote>
           <code
-            >if(code block) { test.status = "pass" }
-            <ol>
-              <li>list item 1</li>
-              <li>list item 2</li>
-            </ol>
+            >let newArray = array.map((currentValue, index, array) => { //
+            return element to new Array });
+          </code>
+          <ul>
+            <li>newArray - the array that is returned</li>
+            <li>array - the array on which the map method is called</li>
+            <li>currentValue - the value being processed</li>
+            <li>index - the index of the current value being processed</li>
+          </ul>
+
+          <p>
+            Map returns a new array, is non-mutating on the original array, and
+            its range of elements is set before first invocation; elements added
+            to the array after the map begins will not be porocessed by the
+            callback.
+          </p>
+
+          <h3>When to use the Map method</h3>
+          <p>
+            Given that there are other similar array methods like the ForEach
+            method, you might wonder, "when should I use (or not) the map
+            method?" Here are some questions that can help you decide:
+          </p>
+          <ol>
+            <li>
+              Do I need an array to be returned from the method and will the
+              returned array be used?
+            </li>
+            <li>Am I returning a value from the callback function?</li>
+          </ol>
+          <p>
+            If your answer to any of these questions is Yes, you should use the
+            map function. If your answer is negative in both cases, you should
+            probably use <code>forEach</code> or <code>for..of</code> instead.
+          </p>
+          <h4>Example:</h4>
+          <code>
+            var numbers = [1, 4, 9]; </br>
+            var roots = numbers.map(function(num) { </br>
+            return Math.sqrt(num) }); // roots is now [1, 2, 3] // numbers is
+            still [1, 4, 9]
           </code>
         </section>
         <section class="main-section" id="main_section_2">
           <header>Filter</header>
-          <p>p1</p>
-          <p>p2</p>
+          <p>
+            The filter() method creates a new array with all elements that pass
+            the test implemented by the provided function.
+          </p>
           <code
-            >if(code block) { test.status = "pass" }
-            <ol>
-              <li>list item 1</li>
-              <li>list item 2</li>
-            </ol>
-          </code>
+            >var newArray = arr.filter(callback(element[, index[, array]])[,
+            thisArg])</code
+          >
+          <p>
+            filter() calls a provided callback function once for each element in
+            an array, and constructs a new array of all the values for which
+            callback returns a value that coerces to true. callback is invoked
+            only for indexes of the array which have assigned values; it is not
+            invoked for indexes which have been deleted or which have never been
+            assigned values. Array elements which do not pass the
+            <code>callback</code> test are simply skipped, and are not included
+            in the new array.
+          </p>
+          <p><code>callback</code> is invoked with three arguments:</p>
+          <ol>
+            <li>the value of the element</li>
+            <li>the index of the element</li>
+            <li>the Array object being traversed</li>
+          </ol>
+          <p>
+            If a <code>thisArg</code> parameter is provided to
+            <code>filter</code>, it will be used as the callback's
+            <code>this</code> value. Otherwise, the value undefined will be used
+            as its <code>this</code> value. The this value ultimately observable
+            by <code>callback</code>
+            is determined according to the usual rules for determining the this
+            seen by a function.
+          </p>
+          <p>
+            <code>filter()</code> does not mutate the array on which it is
+            called.
+          </p>
+          <p>
+            The range of elements processed by <code>filter()</code> is set
+            before the first invocation of <code>callback</code>. Elements which
+            are appended to the array after the call to
+            <code>filter()</code> begins will not be visited by
+            <code>callback</code>. If existing elements of the array are
+            changed, or deleted, their value as passed to
+            <code>callback</code> will be the value at the time
+            <code>filter()</code>
+            visits them; elements that are deleted are not visited.
+          </p>
         </section>
         <section class="main-section" id="main_section_3">
           <header>Reduce</header>
-          <p>p1</p>
-          <p>p2</p>
-          <code
-            >if(code block) { test.status = "pass" }
-            <ol>
-              <li>list item 1</li>
-              <li>list item 2</li>
-            </ol>
+          <p>
+            The reduce() method executes a reducer function 
+            (that you provide) on each element of the array, 
+            resulting in a single output value.
+          </p>
+          <p>
+            The reducer function takes four arguments:
+          </p>
+          <ol>
+            <li>Accumulator (acc)</li>
+            <li>Current Value (cur)</li>
+            <li>Current Index (idx)</li>
+            <li>Source Array (src)</li>
+          </ol>
+          <p>
+            Your reducer function's returned value is assigned to the 
+            accumulator, whose value is remembered across each iteration 
+            throughout the array and ultimately becomes the final, single 
+            resulting value.
+          </p>
+          <code>arr.reduce(callback(accumulator, currentValue[, index[, array]]), [, initialValue])
           </code>
+          <p>
+            The first time the callback is called, accumulator and 
+            currentValue can be one of two values. If initialValue is 
+            provided in the call to reduce(), then accumulator will be 
+            equal to initialValue, and currentValue will be equal to the 
+            first value in the array. If no initialValue is provided, then 
+            accumulator will be equal to the first value in the array, and 
+            currentValue will be equal to the second.
+
+            Note: If initialValue is not provided, reduce() will execute 
+            the callback function starting at index 1, skipping the first 
+            index. If initialValue is provided, it will start at index 0.
+          </p>
         </section>
         <section class="main-section" id="main_section_4">
           <header>Rest</header>
           <p>p1</p>
           <p>p2</p>
-          <code
-            >if(code block) { test.status = "pass" }
-            <ol>
-              <li>list item 1</li>
-              <li>list item 2</li>
-            </ol>
-          </code>
+          <code>if(code block) { test.status = "pass" } </code>
+          <ol>
+            <li>list item 1</li>
+            <li>list item 2</li>
+          </ol>
         </section>
         <section class="main-section" id="main_section_5">
           <header>Spread</header>
           <p>p1</p>
           <p>p2</p>
-          <code
-            >if(code block) { test.status = "pass" }
-            <ol>
-              <li>list item 1</li>
-              <li>list item 2</li>
-            </ol>
-          </code>
+          <code>if(code block) { test.status = "pass" } </code>
+          <ol>
+            <li>list item 1</li>
+            <li>list item 2</li>
+          </ol>
         </section>
         <section class="main-section" id="main_section_6">
           <header>Arrow functions</header>
           <p>p1</p>
           <p>p2</p>
-          <code
-            >if(code block) { test.status = "pass" }
-            <ol>
-              <li>list item 1</li>
-              <li>list item 2</li>
-            </ol>
-          </code>
+          <code>if(code block) { test.status = "pass" } </code>
+          <ol>
+            <li>list item 1</li>
+            <li>list item 2</li>
+          </ol>
         </section>
         <section class="main-section" id="main_section_7">
           <header>Destructuring</header>
           <p>p1</p>
           <p>p2</p>
-          <code
-            >if(code block) { test.status = "pass" }
-            <ol>
-              <li>list item 1</li>
-              <li>list item 2</li>
-            </ol>
-          </code>
+          <code>if(code block) { test.status = "pass" } </code>
+          <ol>
+            <li>list item 1</li>
+            <li>list item 2</li>
+          </ol>
         </section>
         <section class="main-section" id="main_section_8">
           <header>Promises</header>
           <p>p1</p>
           <p>p2</p>
-          <code
-            >if(code block) { test.status = "pass" }
-            <ol>
-              <li>list item 1</li>
-              <li>list item 2</li>
-            </ol>
-          </code>
+          <code>if(code block) { test.status = "pass" } </code>
+          <ol>
+            <li>list item 1</li>
+            <li>list item 2</li>
+          </ol>
         </section>
         <section class="main-section" id="main_section_9">
           <header>Async/Await</header>
           <p>p1</p>
           <p>p2</p>
-          <code
-            >if(code block) { test.status = "pass" }
-            <ol>
-              <li>list item 1</li>
-              <li>list item 2</li>
-            </ol>
-          </code>
+          <code>if(code block) { test.status = "pass" } </code>
+          <ol>
+            <li>list item 1</li>
+            <li>list item 2</li>
+          </ol>
         </section>
       </main>
 
       <div id="navbar-icon">
-        <
+        &lt
       </div>
       <img
         id="night-mode-icon"

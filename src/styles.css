@@ -26,7 +26,7 @@ body {
 
 #navbar-icon {
   font-weight: 700;
-  background-color: grey;
+  background-color: rgba(128, 128, 128, 0.9);
   border: thin solid white;
   border-radius: 50%;
   box-shadow: 0.5px 0px rgb(235, 235, 235);
@@ -82,7 +82,7 @@ body {
 }
 
 header {
-  padding: 10px 0px;
+  padding: 40px 0px 9px 0px;
   font-weight: 550;
   font-size: 1.5em;
 }
@@ -96,6 +96,8 @@ header {
   text-decoration: none;
   color: rgb(108, 172, 255);
   line-height: 1.25em;
+  border: thin solid silver;
+  line-height: 2em;
 }
 
 code {
